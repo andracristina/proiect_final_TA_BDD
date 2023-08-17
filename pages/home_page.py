@@ -23,3 +23,6 @@ class HomePage(BasePage):
     def click_login_button(self):
         self.wait_for_elem(self.LOGIN_BUTTON)
         self.driver.find_element(By.XPATH, self.LOGIN_BUTTON).click()
+
+
+

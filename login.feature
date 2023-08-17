@@ -1,8 +1,8 @@
 Feature: Login capability with valid credentials
 
-  @smoke
+  @regression
 
-  Scenario:Successful login - I login with valid credentials
+  Scenario: Successful login - I login with valid credentials
     Given home: I am a user on the Home page
     When home: I enter my username
     And home: I enter my password

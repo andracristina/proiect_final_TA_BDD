@@ -1,3 +1,5 @@
+import time
+
 from pages.home_page import HomePage
 from behave import *
 
@@ -26,4 +28,8 @@ def step_impl(context):
 @when('home: I click the login button')
 def step_impl(context):
     home_page.click_login_button()
+    time.sleep(10)
+
+
+
 
