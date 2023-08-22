@@ -33,6 +33,10 @@ class HomePage(BasePage):
         actual = self.driver.find_element(By.XPATH,self.INVALID_CREDENTIALS_ERROR).text
         self.assertEqual(expected, actual, 'Error message is correct')
 
+    def validate_correct_url(self):
+        expected = 'https://www.saucedemo.com'
+        actual = self.driver.current_url
+        self.assertEqual(expected, actual, 'URL is incorrect')
 
 
 

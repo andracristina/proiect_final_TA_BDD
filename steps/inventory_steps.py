@@ -44,6 +44,11 @@ def step_impl(context):
 def step_impl(context):
     inventory_page.validate_ztoa_sorting()
 
+@when ('inventory: I click the menu button')
+def step_impl(context):
+    inventory_page.clik_menu_button()
 
-
+@when ('inventory: I click the logout button')
+def step_impl(context):
+    inventory_page.clik_menu_button()
 

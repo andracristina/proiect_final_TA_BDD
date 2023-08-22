@@ -5,10 +5,12 @@ from behave import *
 
 home_page = HomePage()
 
+
 @given('home: I am a user on the Home page')
 def step_impl(context):
     home_page.driver.delete_all_cookies()
     home_page.navigate_to_home_page()
+
 
 @when('home: I login with user {user} and password {password}')
 def step_impl(context, user, password):
@@ -21,3 +23,8 @@ def step_impl(context, user, password):
 @then('home: I validate the correct invalid credentials error message is displayed')
 def step_impl(context):
     home_page.validate_wrong_credentials_error()
+
+
+@then('home: I should land on the home page')
+def step_impl(context):
+    home_page.validate_correct_url()
