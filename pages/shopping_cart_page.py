@@ -18,3 +18,7 @@ class ShoppingCartPage(BasePage):
             print("Error, product not in cart")
 
 
+    def browser_back(self):
+        self.driver.back()
+
+

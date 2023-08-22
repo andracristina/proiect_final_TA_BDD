@@ -1,8 +1,5 @@
 from time import sleep
-
-from pages.home_page import HomePage
 from behave import *
-
 from pages.inventory_page import InventoryPage
 
 inventory_page = InventoryPage()
@@ -12,12 +9,6 @@ inventory_page = InventoryPage()
 def step_impl(context):
     inventory_page.validate_correct_url()
 
-
-'''
-Given I am a user on the Inventory page
-When I select the backpack card
-Then I should see the backpack product description page
-'''
 @given('inventory: I am on the inventory page')
 def step_impl(context):
    inventory_page.validate_correct_url()
@@ -27,13 +18,6 @@ def step_impl(context):
     inventory_page.add_backpack_item()
 
 
-'''
-Given I am on the inventory page
-When I  click the backpack add to cart button
-When I open the shopping cart
-Then I can view the backpack in the shopping cart
-
-'''
 @when ('inventory: I  click the backpack add to cart button')
 def step_impl(context):
     inventory_page.add_backpack_item()
@@ -43,6 +27,11 @@ def step_impl(context):
     inventory_page.click_shopping_cart_button()
 
 
+@then ('inventory: I validate that 6 products are displayed')
+def step_impl(context):
+    inventory_page.validate_product_count(6)\
+
+
 @when ('inventory: I click the sorting drop-down menu')
 def step_impl(context):
     inventory_page.open_sorting_options()
@@ -50,5 +39,11 @@ def step_impl(context):
 @when ('inventory: I select Name (Z to A) option')
 def step_impl(context):
     inventory_page.select_ztoa_sorting()
+
+@then ('inventory: I validate that the products are arranged in reverse alphabetical order')
+def step_impl(context):
+    inventory_page.validate_ztoa_sorting()
+
+
 
 

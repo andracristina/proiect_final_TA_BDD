@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
-from time import sleep
+
 
 class HomePage(BasePage):
     # definim selectors
@@ -11,6 +11,7 @@ class HomePage(BasePage):
     INVALID_CREDENTIALS_ERROR = '//*[@id="login_button_container"]/div/form/div[3]'
 
  # actions
+
     def navigate_to_home_page(self):
         self.driver.get('https://www.saucedemo.com/')
 
