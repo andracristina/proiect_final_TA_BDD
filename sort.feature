@@ -6,7 +6,7 @@ Feature: User can successfully sort the available items by different criteria
       When home: I login with user standard_user and password secret_sauce
 
 
-  @sort
+  @regression
 
     Scenario: I am able to sort the product list in reverse alphabetical order (Z to A)
       Given inventory: I am on the inventory page

@@ -1,6 +1,3 @@
-from lib2to3.pgen2 import driver
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
 from time import sleep
@@ -11,10 +8,11 @@ class InventoryPage(BasePage):
     ADD_TO_CART_BACKPACK_BUTTON = '//*[@id="add-to-cart-sauce-labs-backpack"]'
     SHOPPING_CART_BUTTON = '//*[@id="shopping_cart_container"]/a'
     SORTING_MENU = '//*[@id="header_container"]/div[2]/div/span/select'
+    AVAILABLE_ITEMS = '//*[@class="inventory_item"]'
     PRODUCTS_AVAILABLE = ['//*[@class="inventory_item"]']
     ZtoA = '//*[@id="header_container"]/div[2]/div/span/select/option[2]'
     MENU_BUTTON = '//button[@id="react-burger-menu-btn"]'
-    LOGOUT_BUTTON = '//*[@id="logout_sidebar_link"]'
+    LOGOUT_BUTTON = '//a[text()="Logout"]'
 
     def validate_correct_url(self):
         expected = 'https://www.saucedemo.com/inventory.html'
@@ -38,7 +36,7 @@ class InventoryPage(BasePage):
 
     def validate_product_count(self, expected_number):
         sleep(1)
-        actual_number = len(self.driver.find_elements(By.XPATH, self.PRODUCTS_AVAILABLE))
+        actual_number = len(self.driver.find_elements(By.XPATH, self.AVAILABLE_ITEMS))
         self.assertEqual(expected_number, actual_number, 'Number of products is incorrect')
 
     def open_sorting_options(self):

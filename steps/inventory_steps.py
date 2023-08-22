@@ -29,7 +29,7 @@ def step_impl(context):
 
 @then ('inventory: I validate that 6 products are displayed')
 def step_impl(context):
-    inventory_page.validate_product_count(6)\
+    inventory_page.validate_product_count(6)
 
 
 @when ('inventory: I click the sorting drop-down menu')
