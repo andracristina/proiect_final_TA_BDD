@@ -31,7 +31,6 @@ def step_impl(context):
 def step_impl(context):
     inventory_page.validate_product_count(6)
 
-
 @when ('inventory: I click the sorting drop-down menu')
 def step_impl(context):
     inventory_page.open_sorting_options()
@@ -50,5 +49,6 @@ def step_impl(context):
 
 @when ('inventory: I click the logout button')
 def step_impl(context):
-    inventory_page.clik_menu_button()
+    inventory_page.clik_logout_button()
+    sleep(2)
 

@@ -5,7 +5,7 @@ Feature: Logout capability
     When home: I login with user standard_user and password secret_sauce
     Then inventory: I should land on the inventory page
 
-    @logoutinprogress
+    @regression
 
     Scenario: I am able to successfully log out of my account
       Given inventory: I am on the inventory page

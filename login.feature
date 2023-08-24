@@ -21,4 +21,9 @@ Feature: Login capability
     | user_standard   | secret_sauce  |
 
 
+  @regression
+  Scenario: I attempt login with locked out credentials
+    When home: I login with user locked_out_user and password secret_sauce
+    Then home: I validate the correct locked out credentials error message is displayed
+
 

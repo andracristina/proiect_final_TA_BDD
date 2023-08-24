@@ -24,6 +24,9 @@ def step_impl(context, user, password):
 def step_impl(context):
     home_page.validate_wrong_credentials_error()
 
+@then('home: I validate the correct locked out credentials error message is displayed')
+def step_impl(context):
+    home_page.validate_locked_credentials_error()
 
 @then('home: I should land on the home page')
 def step_impl(context):

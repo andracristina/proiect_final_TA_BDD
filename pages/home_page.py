@@ -13,6 +13,7 @@ class HomePage(BasePage):
  # actions
 
     def navigate_to_home_page(self):
+        self.driver.delete_all_cookies()
         self.driver.get('https://www.saucedemo.com/')
 
     def fill_username_input(self,user):
@@ -33,8 +34,14 @@ class HomePage(BasePage):
         actual = self.driver.find_element(By.XPATH,self.INVALID_CREDENTIALS_ERROR).text
         self.assertEqual(expected, actual, 'Error message is correct')
 
+    def validate_locked_credentials_error(self):
+        self.wait_for_elem(self.INVALID_CREDENTIALS_ERROR)
+        expected = 'Epic sadface: Sorry, this user has been locked out.'
+        actual = self.driver.find_element(By.XPATH, self.INVALID_CREDENTIALS_ERROR).text
+        self.assertEqual(expected, actual, 'Error message is correct')
+
     def validate_correct_url(self):
-        expected = 'https://www.saucedemo.com'
+        expected = 'https://www.saucedemo.com/'
         actual = self.driver.current_url
         self.assertEqual(expected, actual, 'URL is incorrect')
 
